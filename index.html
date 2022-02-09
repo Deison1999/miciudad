@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <script src=" https://unpkg.com/leaflet@1.6.0/dist/leaflet.js "></script>
+    <link
+      rel="stylesheet"
+      href=" https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    />
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Segundo_ejercicio DeisonCarpio</title>
+
+    <style>
+      #map {
+        width: 100%;
+        height: 580px;
+        box-shadow: 5px 5px 5px #888;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="map"></div>
+    <script>
+      var osm = L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+          attribution:
+            '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>' +
+            "contributors",
+          maxZoom: 18,
+        }
+      );
+      var map = L.map("map", {
+        center: [1.61988, -75.60408],
+        zoom: 15,
+        layers: [osm],
+        scrollWheelZoom: true,
+      });
+      L.control.scale().addTo(map);
+      var marker = L.marker([1.62009, -75.60433], {
+        draggable: true,
+        title: "pincha aquí",
+      })
+        .addTo(map)
+        .bindPopup("Universidad de la Amazonia")
+        .openPopup();
+      var marker = L.marker([1.615311139434102, -75.61387073103205], {
+        draggable: true,
+        title: "pincha aquí",
+      })
+        .addTo(map)
+        .bindPopup("Localización de Alcaldía de la Ciudad de Florencia")
+        .openPopup();
+      var circle = L.circle([1.615311139434102, -75.61387073103205], 500, {
+        color: "black",
+        fillColor: "#ff6183",
+        fillOpacity: 0.5,
+      }).addTo(map);
+      circle.bindPopup("ALCALDIA DE FLORENCIA");
+
+      var marker = L.marker([1.6151876034335386, -75.61332586044374], {
+        draggable: true,
+        title: "pincha aquí",
+      })
+        .addTo(map)
+        .bindPopup("Localización de Parque Santander de la Ciudad de Florencia")
+        .openPopup();
+      var polygon = L.polygon(
+        [
+          [1.6147040404819906, -75.61282152780218],
+          [1.6153964019985192, -75.6130317019282],
+          [1.6151746107437512, -75.61369979939177],
+          [1.6145080492005264, -75.61350255509535],
+        ],
+        {
+          color: "yellow",
+          fillColor: "#5D3AF9",
+          fillOpacity: 0.5,
+        }
+      )
+        .addTo(map)
+        .bindPopup("PARQUE SANTANDER");
+      var pointA = new L.LatLng(1.6079385910072266, -75.60186866224917);
+      var pointB = new L.LatLng(1.608128952847687, -75.60238632856944);
+      var pointC = new L.LatLng(1.6083997492380189, -75.6031695335721);
+      var pointD = new L.LatLng(1.6084506911292193, -75.60321244891472);
+      var pointE = new L.LatLng(1.6094024999229215, -75.60278061327445);
+      var pointF = new L.LatLng(1.6098297169502929, -75.60361986168866);
+      var pointG = new L.LatLng(1.6100790639149851, -75.6040845543829);
+      var pointH = new L.LatLng(1.6102647335467988, -75.60412814027828);
+      var pointI = new L.LatLng(1.612600683963898, -75.60604122583938);
+      var pointJ = new L.LatLng(1.6128701391900053, -75.60608883504962);
+      var pointK = new L.LatLng(1.6130645222938889, -75.60607005958677);
+      var pointM = new L.LatLng(1.6132763328267057, -75.60601038043475);
+      var pointN = new L.LatLng(1.6133956438144723, -75.60592454974827);
+      var pointL = new L.LatLng(1.6134546290174039, -75.60589437489799);
+      var pointO = new L.LatLng(1.6146309097280394, -75.60470704290971);
+      var pointP = new L.LatLng(1.6148494229521484, -75.60448576067436);
+      var pointQ = new L.LatLng(1.6149258355497396, -75.60441468213286);
+      var pointR = new L.LatLng(1.6152140584672794, -75.60418065940517);
+      var pointS = new L.LatLng(1.6154359230636623, -75.60412701522075);
+      var pointT = new L.LatLng(1.6155063030675922, -75.60412098025003);
+      var pointU = new L.LatLng(1.615607516207393, -75.60422893915879);
+      var pointV = new L.LatLng(1.6175707339595542, -75.6055406590536);
+      var pointW = new L.LatLng(1.6187933334844273, -75.60639360148802);
+      var pointX = new L.LatLng(1.6200963664090329, -75.60518124303725);
+
+      var latlngs = [
+        pointA,
+        pointB,
+        pointC,
+        pointD,
+        pointE,
+        pointF,
+        pointG,
+        pointH,
+        pointI,
+        pointJ,
+        pointK,
+        pointM,
+        pointN,
+        pointL,
+        pointO,
+        pointP,
+        pointQ,
+        pointR,
+        pointS,
+        pointT,
+        pointU,
+        pointV,
+        pointW,
+        pointX,
+      ];
+      var polyline = L.polyline(latlngs, { color: "red" })
+        .addTo(map)
+        .bindPopup("RUTA DE MI CASA");
+    </script>
+  </body>
+</html>
